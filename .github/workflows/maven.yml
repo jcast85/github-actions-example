@@ -7,9 +7,19 @@
 # documentation.
 
 name: Java CI with Maven
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
 on:
   push:
+    paths-ignore:
+      - '**/*.md'
+      - 'docs/**'
+      - '.*'
+      - 'mvn*'
+      - '**/*.md'
+      - 'LICENSE'
+      - 'images/**'
+      - 'examples/**'
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
