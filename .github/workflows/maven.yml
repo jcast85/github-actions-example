@@ -31,19 +31,6 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
 
-    services:
-      mysql:
-        image: mysql:8.0
-        env:
-          # secrets have been stored into the repository "Settings" -> "Secrets and variables" -> "Actions" -> "Repository secrets"
-          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
-          MYSQL_USER: ${{ secrets.MYSQL_USER }}
-          MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
-          MYSQL_DATABASE: mydatabase
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping --silent" --health-interval=10s --health-timeout=5s --health-retries=3
-
     steps:
     - name: Checkout Code
       uses: actions/checkout@v4
