@@ -26,10 +26,7 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Code
@@ -60,7 +57,8 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         context: .
+        file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo:1.0.0-${{ matrix.os }}
-        cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo:1.0.0-${{ matrix.os }}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo:1.0.0
+        cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo:1.0.0
         cache-to: type=inline
