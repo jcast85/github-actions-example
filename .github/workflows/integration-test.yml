@@ -21,7 +21,7 @@ jobs:
 
       - name: Execute tests in the running services
         run: |
-          docker-compose up -d
+          docker compose up -d
 
       - name: Wait for app to be ready
         run: |
