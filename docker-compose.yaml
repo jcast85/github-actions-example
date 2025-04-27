@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:9.3.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: mysqlappdb
+      MYSQL_USER: mysqluser
+      MYSQL_PASSWORD: mysqlpassword
+      MYSQL_ROOT_PASSWORD: mysqlrootpass
+    ports:
+      - "3306:3306"
+    networks:
+      - myNetwork
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  app:
+    image: juricastellani/mypublicrepo:1.0.0
+    container_name: spring-app
+    depends_on:
+      - mysql
+    environment:
+      DB_SCHEMA: mysqlappdb
+      DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
+      DB_URL: jdbc:mysql://mysql-db:3306/mysqlappdb?allowPublicKeyRetrieval=true&useSSL=false
+      DB_USR: mysqluser
+      DB_PWD: mysqlpassword
+      DB_DRIVER: com.mysql.cj.jdbc.Driver
+    ports:
+      - "8080:8080"
+    networks:
+      - myNetwork
+
+networks:
+  myNetwork:
+
+volumes:
+  mysql-data:
