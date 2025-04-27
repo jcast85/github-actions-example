@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "companies", schema = "railway")
+@Table(name = "companies")
 @Access(AccessType.FIELD)
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
