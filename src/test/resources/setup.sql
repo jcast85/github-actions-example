@@ -1,6 +1,6 @@
 CREATE SCHEMA IF NOT EXISTS MYSCHEMA;
 
-CREATE TABLE MYSCHEMA.COMPANIES (
+CREATE TABLE MYSCHEMA.companies (
   id int,
   name varchar(50),
   address text,
