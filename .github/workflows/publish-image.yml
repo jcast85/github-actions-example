@@ -7,7 +7,7 @@
 # documentation.
 
 name: Java CI with Maven
-run-name: "🚀 ${{  github.actor  }} - last commit: \"${{  github.event.head_commit.message  }}\" - publish image"
+run-name: "🚀 ${{  github.actor  }} - publish image - last commit: \"${{  github.event.head_commit.message  }}\""
 
 on:
   push:

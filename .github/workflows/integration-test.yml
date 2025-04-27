@@ -1,5 +1,5 @@
 name: Integration Test
-run-name: "🚀 ${{  github.actor  }} - last commit: \"${{  github.event.head_commit.message  }}\" - integration-test"
+run-name: "🚀 ${{  github.actor  }} - integration-test - last commit: \"${{  github.event.head_commit.message  }}\""
 on:
   workflow_run:
     workflows: ["publish-image"]
