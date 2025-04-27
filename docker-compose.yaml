@@ -15,7 +15,7 @@ services:
     networks:
       - myNetwork
     volumes:
-      - ./test/resources/setup.sql:/docker-entrypoint-initdb.d/1.sql"
+      - ./test/resources:/docker-entrypoint-initdb.d"
       - mysql-data:/var/lib/mysql
 
   app:
