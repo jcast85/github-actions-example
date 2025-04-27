@@ -15,8 +15,7 @@ services:
     networks:
       - myNetwork
     volumes:
-      - ./test/resources:/docker-entrypoint-initdb.d"
-      - mysql-data:/var/lib/mysql
+      - ./src/test/resources/setup.sql:/docker-entrypoint-initdb.d/init.sql
 
   app:
     image: juricastellani/mypublicrepo:1.0.0
