@@ -13,12 +13,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Docker Compose
-        uses: docker/setup-compose-action@v1
-        with:
-          version: latest
 
-      - name: Set up Docker Compose
+      - name: Run docker compose
+        uses: hoverkraft-tech/compose-action@v2.0.1
+        with:
+          compose-file: "./docker/docker-compose.yml"
+
+      - name: Execute tests in the running services
         run: |
           docker-compose up -d
 
