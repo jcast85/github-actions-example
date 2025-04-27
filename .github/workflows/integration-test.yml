@@ -30,5 +30,4 @@ jobs:
 
       - name: Run API tests
         run: |
-          curl --fail http://localhost:8080/health || exit 1
-          curl --fail http://localhost:8080/api/your-endpoint || exit 1
+          curl --fail http://localhost:8080/api/companies || exit 1
