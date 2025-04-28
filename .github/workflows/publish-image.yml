@@ -40,9 +40,7 @@ jobs:
         cache: maven
 
     - name: Build with Maven
-      run: |
-        cd backend
-        mvn -B package --file pom.xml
+      run: mvn -B package --file pom.xml
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     # To correct use it you need to go to your repository "Settings" -> "Actions" -> "General" and in the "Workflow permissions" section select "Read and write permissions".
