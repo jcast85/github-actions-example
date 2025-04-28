@@ -26,10 +26,8 @@ jobs:
 
       - name: Wait for app to be ready
         run: |
-          echo "Waiting for app to be ready..."
-          max_attempts=30
-          attempt=0
-          wait_seconds=5
+          echo "Waiting for app..."
+          sleep 20 # or implement a better healthcheck with curl retries
 
       - name: Run API tests
         run: |
