@@ -57,7 +57,7 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         context: .
-        file: ./Dockerfile
+        file: ./docker/Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo:1.0.0
         cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo:1.0.0
