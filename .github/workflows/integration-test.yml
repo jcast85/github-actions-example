@@ -24,6 +24,11 @@ jobs:
           cd docker
           docker compose up -d
 
+      - name: Wait for app to be ready
+        run: |
+          echo "Waiting for app..."
+          sleep 20 # or implement a better healthcheck with curl retries
+
       - name: Run API tests
         run: |
           curl --fail http://localhost:8080/api/companies || exit 1
