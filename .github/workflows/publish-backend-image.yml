@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Publish Image
+name: Publish Backend Image
 run-name: "🚀 ${{  github.actor  }} - publish image - last commit: \"${{  github.event.head_commit.message  }}\""
 
 on:
@@ -16,7 +16,7 @@ on:
       - 'docs/**'
       - '.*'
       - 'mvn*'
-      - '**/*.md'
+      - 'frontend/**'
       - 'LICENSE'
       - 'images/**'
       - 'examples/**'

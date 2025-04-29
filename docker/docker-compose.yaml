@@ -22,7 +22,7 @@ services:
       timeout: 5s
       retries: 10
 
-  app:
+  backend:
     image: juricastellani/mypublicrepo:1.0.0
     container_name: spring-app
     depends_on:
@@ -39,6 +39,13 @@ services:
       - "8080:8080"
     networks:
       - myNetwork
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
 
 networks:
   myNetwork:
