@@ -2,7 +2,7 @@ name: Integration Test
 run-name: "🚀 ${{  github.actor  }} - integration-test"
 on:
   workflow_run:
-    workflows: ["Publish Image"]
+    workflows: ["Publish Backend Image", "Publish Frontend Image"]
     types:
       - completed
 jobs:

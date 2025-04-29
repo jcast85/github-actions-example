@@ -7,7 +7,7 @@
 # documentation.
 
 name: Publish Backend Image
-run-name: "🚀 ${{  github.actor  }} - publish image - last commit: \"${{  github.event.head_commit.message  }}\""
+run-name: "🚀 ${{  github.actor  }} - publish backend image - last commit: \"${{  github.event.head_commit.message  }}\""
 
 on:
   push:
