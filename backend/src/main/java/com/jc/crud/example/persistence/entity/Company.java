@@ -1,7 +1,8 @@
 package com.jc.crud.example.persistence.entity;
 
-import lombok.*;
 import jakarta.persistence.*;
+import lombok.*;
+
 import java.io.Serializable;
 
 @Entity

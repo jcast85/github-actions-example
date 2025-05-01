@@ -3,6 +3,7 @@ package com.jc.crud.example.mapper;
 import com.jc.crud.example.model.CompanyDTO;
 import com.jc.crud.example.persistence.entity.Company;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class DtoToCompanyMapperTest {
