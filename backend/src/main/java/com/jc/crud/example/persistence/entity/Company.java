@@ -15,6 +15,10 @@ import java.io.Serializable;
 public class Company implements Serializable {
 
   @Id
+  @GeneratedValue(strategy = GenerationType.TABLE, generator = "company_table_gen")
+  @TableGenerator(name = "company_table_gen", table = "id_generator",
+    pkColumnName = "gen_name", valueColumnName = "gen_value",
+    pkColumnValue = "company_id", initialValue = 1, allocationSize = 1)
   @Column(name = "ID", nullable = false)
   private Integer id;
 
