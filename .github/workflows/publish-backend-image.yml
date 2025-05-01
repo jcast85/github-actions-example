@@ -11,6 +11,8 @@ run-name: "🚀 ${{  github.actor  }} - publish backend image - last commit: \"$
 
 on:
   push:
+    paths:
+      - 'backend/**'
     paths-ignore:
       - '**/*.md'
       - 'docs/**'
