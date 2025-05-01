@@ -50,7 +50,7 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Build and push
+    - name: Build and push app
       uses: docker/build-push-action@v6
       with:
         context: .
@@ -58,4 +58,14 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo:1.0.0
         cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo:1.0.0
+        cache-to: type=inline
+
+    - name: Build and push db
+      uses: docker/build-push-action@v6
+      with:
+        context: .
+        file: ./docker/Dockerfile.mysql
+        push: true
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo-mysql:1.0.0
+        cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo-mysql:1.0.0
         cache-to: type=inline

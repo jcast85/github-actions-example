@@ -1,0 +1,21 @@
+FROM mysql:9.3.0
+
+# Copy initialization SQL script
+COPY backend/src/test/resources/setup.sql /docker-entrypoint-initdb.d/
+
+# Environment variables are typically set in docker-compose.yml
+# But you can provide defaults here if preferred
+ENV MYSQL_DATABASE=mysqlappdb \
+    MYSQL_USER=mysqluser \
+    MYSQL_PASSWORD=mysqlpassword \
+    MYSQL_ROOT_PASSWORD=mysqlrootpass
+
+# Add custom MySQL configurations if needed
+# COPY ./my.cnf /etc/mysql/conf.d/
+
+# Expose port
+EXPOSE 3306
+
+# MySQL healthcheck
+HEALTHCHECK --interval=5s --timeout=5s --retries=10 \
+  CMD mysqladmin ping -h localhost -u root -p${MYSQL_ROOT_PASSWORD}
