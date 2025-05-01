@@ -23,6 +23,7 @@ jobs:
           find . -name "package.json" -type f -exec grep -l "registry" {} \; -exec cat {} \;
 
       - name: Setup global npm config
+        working-directory: ./frontend
         run: |
           echo "registry=https://registry.npmjs.org/" > ~/.npmrc
           npm config set registry https://registry.npmjs.org/
