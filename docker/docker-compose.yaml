@@ -4,6 +4,8 @@ services:
   mysql:
     image: juricastellani/mypublicrepo-db:1.0.0
     container_name: mysql-db
+    ports:
+      - "3306:3306"
     networks:
       - myNetwork
 
