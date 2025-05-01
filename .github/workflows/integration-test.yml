@@ -23,10 +23,10 @@ jobs:
           cd docker
           docker compose up -d
 
-      - name: Wait for services to be healthy
+      - name: Wait for app to be ready
         run: |
-          cd docker
-          docker compose wait backend frontend
+          echo "Waiting for app..."
+          sleep 30 # or implement a better healthcheck with curl retries
 
       - name: Run API tests
         run: |
