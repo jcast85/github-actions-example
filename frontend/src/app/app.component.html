@@ -143,6 +143,65 @@
       </div>
     </div>
   </div>
+  <div class="container">
+    <h1>Companies</h1>
+
+    <!-- Create New Company -->
+    <div class="create-form">
+      <h2>Add New Company</h2>
+      <input [(ngModel)]="newCompany.name" placeholder="Name" />
+      <input [(ngModel)]="newCompany.address" placeholder="Address" />
+      <button (click)="addCompany()">Add</button>
+    </div>
+
+    <hr>
+
+    <!-- Update Company -->
+    <div *ngIf="selectedCompany" class="edit-form">
+      <h2>Edit Company</h2>
+      <input [(ngModel)]="selectedCompany.name" placeholder="Name" />
+      <input [(ngModel)]="selectedCompany.address" placeholder="Address" />
+      <button (click)="updateCompany()">Update</button>
+      <button (click)="cancelEdit()">Cancel</button>
+    </div>
+
+    <hr>
+
+    <!-- List Companies -->
+    <div class="company-list">
+      <h2>Company List</h2>
+      <table>
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let company of companies">
+          <td>{{ company.id }}</td>
+          <td>{{ company.name }}</td>
+          <td>{{ company.address }}</td>
+          <td>
+            <button (click)="editCompany(company)">Edit</button>
+            <button (click)="deleteCompany(company.id!)">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <style>
+    .container { max-width: 800px; margin: 20px auto; }
+    input { margin: 5px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+    button { margin-right: 5px; }
+  </style>
+
 </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
@@ -152,5 +211,3 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<router-outlet />
