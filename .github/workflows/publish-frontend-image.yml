@@ -2,18 +2,10 @@ name: Publish Frontend Image
 run-name: "🚀 ${{  github.actor  }} - publish frontend image - last commit: \"${{  github.event.head_commit.message  }}\""
 
 on:
-  push:
-    paths-ignore:
-      - '**/*.md'
-      - 'docs/**'
-      - '.*'
-      - 'backend/**'
-      - 'LICENSE'
-      - 'images/**'
-      - 'examples/**'
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_run:
+    workflows: ["Publish Backend Image"]
+    types:
+      - completed
 
 jobs:
   build:

@@ -16,7 +16,6 @@ on:
       - 'docs/**'
       - '.*'
       - 'mvn*'
-      - 'frontend/**'
       - 'LICENSE'
       - 'images/**'
       - 'examples/**'
