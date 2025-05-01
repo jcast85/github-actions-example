@@ -26,7 +26,7 @@ jobs:
       - name: Wait for services to be healthy
         run: |
           cd docker
-          docker compose wait
+          docker compose wait backend frontend
 
       - name: Run API tests
         run: |
