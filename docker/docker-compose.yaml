@@ -24,7 +24,8 @@ services:
     image: juricastellani/mypublicrepo-frontend:1.0.0
     container_name: angular-app
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
 
 networks:
   myNetwork:
