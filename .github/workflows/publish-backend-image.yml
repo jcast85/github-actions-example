@@ -66,6 +66,6 @@ jobs:
         context: .
         file: ./docker/Dockerfile.mysql
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo-mysql:1.0.0
-        cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo-mysql:1.0.0
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo-db:1.0.0
+        cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo-db:1.0.0
         cache-to: type=inline

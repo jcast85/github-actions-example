@@ -2,25 +2,10 @@ version: '3.8'
 
 services:
   mysql:
-    image: mysql:9.3.0
+    image: juricastellani/mypublicrepo-db:1.0.0
     container_name: mysql-db
-    restart: always
-    environment:
-      MYSQL_DATABASE: mysqlappdb
-      MYSQL_USER: mysqluser
-      MYSQL_PASSWORD: mysqlpassword
-      MYSQL_ROOT_PASSWORD: mysqlrootpass
-    ports:
-      - "3306:3306"
     networks:
       - myNetwork
-    volumes:
-      - ../backend/src/test/resources/setup.sql:/docker-entrypoint-initdb.d/init.sql
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-ppassword"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
 
   backend:
     image: juricastellani/mypublicrepo:1.0.0
