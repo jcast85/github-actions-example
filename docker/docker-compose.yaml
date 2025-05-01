@@ -41,9 +41,8 @@ services:
       - myNetwork
 
   frontend:
-    build: ./frontend
-    ports:
-      - "80:80"
+    image: juricastellani/mypublicrepo-frontend:1.0.0
+    container_name: angular-app
     depends_on:
       - backend
 
