@@ -1,9 +1,11 @@
 FROM node:alpine
 RUN mkdir angular
 COPY . /angular
-RUN rm -rf /angular/.angular
-RUN rm -rf /angular/node_modules
-RUN cd angular && npm install -g @angular/cli
-RUN cd angular && npm install --verbose
+WORKDIR /angular
+RUN rm -rf /.angular
+RUN rm -rf /node_modules
+RUN rm package-lock.json
+RUN npm install -g @angular/cli
+RUN npm install --verbose
 EXPOSE 4300
 CMD ["npm", "run", "serve:prod"]
