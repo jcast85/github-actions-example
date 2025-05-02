@@ -17,8 +17,10 @@ My simple application just to try Github Actions features
    ```
 4. Run the Angular application TODO
    ```
-   cd backend
+   cd frontend
    npm run build:prod
    npm run build:dev
+   npm run build:local
+   ng build --configuration local
    ng serve
    ```
