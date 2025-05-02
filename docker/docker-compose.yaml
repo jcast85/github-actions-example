@@ -26,6 +26,10 @@ services:
     depends_on:
       backend:
         condition: service_healthy
+    ports:
+      - "4300:4300"
+    networks:
+      - myNetwork
 
 networks:
   myNetwork:
