@@ -1,5 +1,5 @@
 FROM node:alpine
-WORKDIR ../frontend/src/app
+WORKDIR /src/app
 COPY . /usr/src/app
 RUN npm install -g @angular/cli
 RUN npm install --verbose
