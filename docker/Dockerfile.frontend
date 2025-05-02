@@ -1,8 +1,8 @@
 FROM node:alpine
 COPY . /usr
 RUN cd usr
-npm cache clean --force
 RUN npm install -g @angular/cli
+npm cache clean --force
 RUN npm install --verbose
 EXPOSE 4300
 CMD ["npm", "run", "serve:prod"]
