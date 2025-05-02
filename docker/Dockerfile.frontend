@@ -1,6 +1,7 @@
 FROM node:alpine
 COPY . /usr
 RUN cd usr
+npm cache clean --force
 RUN npm install -g @angular/cli
 RUN npm install --verbose
 EXPOSE 4300
