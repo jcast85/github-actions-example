@@ -15,12 +15,10 @@ My simple application just to try Github Actions features
    cd backend
    mvnw.cmd spring-boot:run -Dspring-boot.run.profiles=local
    ```
-4. Run the Angular application TODO
+4. Run the Angular application
    ```
    cd frontend
-   npm run build:prod
-   npm run build:dev
-   npm run build:local
-   ng build --configuration local
-   ng serve
+   npm run serve:local
    ```
+5. In a browser access localhost:4300
+
