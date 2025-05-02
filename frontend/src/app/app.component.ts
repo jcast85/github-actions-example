@@ -3,6 +3,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { importProvidersFrom } from '@angular/core';
+import { environment } from '../environments/environment';
 
 interface Company {
   id?: number;
@@ -22,7 +23,7 @@ export class AppComponent implements OnInit {
   companies: Company[] = [];
   newCompany: Company = { name: '', address: '' };
   selectedCompany: Company | null = null;
-  private apiUrl = 'http://localhost:8080/api/companies';
+  private apiUrl = environment.apiUrl + '/api/companies';
 
   constructor(private http: HttpClient) {}
 
