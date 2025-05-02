@@ -13,7 +13,8 @@
     "serve:ssr:my-first-project": "node dist/my-first-project/server/server.mjs",
     "serve:local": "ng serve --configuration=local",
     "serve:dev": "ng serve --configuration=development",
-    "serve:prod": "ng serve --configuration=production"
+    "serve:prod": "ng serve --configuration=production",
+
   },
   "private": true,
   "dependencies": {
