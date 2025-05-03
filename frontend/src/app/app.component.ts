@@ -32,11 +32,13 @@ export class AppComponent implements OnInit {
   }
 
   loadCompanies() {
+    console.log('loadCompanies');
     this.http.get<Company[]>(this.apiUrl)
       .subscribe(data => this.companies = data);
   }
 
   addCompany() {
+    console.log('addCompany');
     this.http.post<Company>(this.apiUrl, this.newCompany)
       .subscribe(() => {
         this.newCompany = { name: '', address: '' };
@@ -45,10 +47,12 @@ export class AppComponent implements OnInit {
   }
 
   editCompany(company: Company) {
+    console.log('editCompany');
     this.selectedCompany = { ...company };
   }
 
   updateCompany() {
+    console.log('updateCompany');
     if (!this.selectedCompany || !this.selectedCompany.id) return;
 
     this.http.put(`${this.apiUrl}/${this.selectedCompany.id}`, this.selectedCompany)
@@ -59,11 +63,13 @@ export class AppComponent implements OnInit {
   }
 
   deleteCompany(id: number) {
+    console.log('deleteCompany');
     this.http.delete(`${this.apiUrl}/${id}`)
       .subscribe(() => this.loadCompanies());
   }
 
   cancelEdit() {
+    console.log('cancelEdit');
     this.selectedCompany = null;
   }
 }
