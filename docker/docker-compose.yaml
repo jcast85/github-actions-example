@@ -12,6 +12,8 @@ services:
   backend:
     image: juricastellani/mypublicrepo:1.0.0
     container_name: spring-app
+    environment:
+      FRONTEND_BASE_URL: http://frontend:4300
     depends_on:
       mysql:
         condition: service_healthy
