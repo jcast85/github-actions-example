@@ -1,11 +1,11 @@
 {
   "name": "my-first-project",
   "version": "1.0.0",
-
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod-railway": "ng build --configuration production-railway",
     "build:prod": "ng build --configuration production",
     "build:dev": "ng build --configuration development",
     "build:local": "ng build --configuration local",
@@ -14,6 +14,7 @@
     "serve:ssr:my-first-project": "node dist/my-first-project/server/server.mjs",
     "serve:local": "ng serve --configuration=local",
     "serve:dev": "ng serve --configuration=development",
+    "serve:prod-railway": "ng serve --configuration=production-railway --host 0.0.0.0"
     "serve:prod": "ng serve --configuration=production --host 0.0.0.0"
   },
   "private": true,
