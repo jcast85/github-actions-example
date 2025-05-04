@@ -4,10 +4,8 @@ WORKDIR /app
 COPY . .
 RUN npm install
 RUN npm run build:prod
-COPY .htaccess ./dist/.htaccess
 
 FROM httpd:alpine3.15
 
 WORKDIR /usr/local/apache2/htdocs
 COPY --from=angular /app/dist/my-first-project .
-COPY my-httpd.conf /usr/local/apache2/conf/httpd.conf
