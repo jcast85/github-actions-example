@@ -10,4 +10,4 @@ FROM httpd:alpine3.15
 
 WORKDIR /usr/local/apache2
 COPY --from=angular /htdocs/app/dist/my-first-project .
-COPY httpd.conf /conf
+COPY httpd.conf /conf/httpd.conf
