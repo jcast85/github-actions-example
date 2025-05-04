@@ -4,7 +4,7 @@ WORKDIR /app
 COPY . .
 RUN npm install
 RUN npm run build:prod
-COPY .htaccess /dist/.htaccess
+COPY .htaccess /dist
 
 FROM httpd:alpine3.15
 
