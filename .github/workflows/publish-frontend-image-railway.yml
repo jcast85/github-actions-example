@@ -1,5 +1,5 @@
 name: Publish Frontend Image
-run-name: "🚀 ${{  github.actor  }} - publish frontend image - last commit: \"${{  github.event.head_commit.message  }}\""
+run-name: "🚀 ${{  github.actor  }} - publish frontend image railway - last commit: \"${{  github.event.head_commit.message  }}\""
 
 on:
   push:
