@@ -1,4 +1,4 @@
-name: Publish Frontend Image
+name: Publish Frontend Image Railway
 run-name: "🚀 ${{  github.actor  }} - publish frontend image railway - last commit: \"${{  github.event.head_commit.message  }}\""
 
 on:
