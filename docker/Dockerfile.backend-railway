@@ -3,7 +3,7 @@ FROM eclipse-temurin:21-jre
 # Environment variables
 ENV DB_SCHEMA=mysqlappdb \
     DATABASE_PLATFORM=org.hibernate.dialect.MySQLDialect \
-    DB_URL=jdbc:mysql://mypublicrepo-db-production.up.railway.app:3306/mysqlappdb?allowPublicKeyRetrieval=true&useSSL=false \
+    DB_URL=jdbc:mysql://centerbeam.proxy.rlwy.net:28536/mysqlappdb?allowPublicKeyRetrieval=true&useSSL=false \
     DB_USR=mysqluser \
     DB_PWD=mysqlpassword \
     DB_DRIVER=com.mysql.cj.jdbc.Driver
