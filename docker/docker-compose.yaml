@@ -10,7 +10,7 @@ services:
       MYSQL_PASSWORD: mysqlpassword
       MYSQL_DATABASE: mysqlappdb
     volumes:
-      - ../backend/src/test/resources/setup.sql:/docker-entrypoint-initdb.d
+      - ./backend/src/test/resources/setup.sql:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
     networks:
