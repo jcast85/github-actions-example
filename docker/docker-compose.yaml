@@ -2,18 +2,37 @@ version: '3.8'
 
 services:
   mysql:
-    image: juricastellani/mypublicrepo-db:1.0.0
+    image: mysql:9.3.0
     container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqlrootpass
+      MYSQL_USER: mysqluser
+      MYSQL_PASSWORD: mysqlpassword
+      MYSQL_DATABASE: mysqlappdb
+    volumes:
+      - ./backend/src/test/resources/setup.sql:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
     networks:
       - myNetwork
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
 
   backend:
     image: juricastellani/mypublicrepo:1.0.0
     container_name: spring-app
     environment:
       FRONTEND_BASE_URL: http://frontend:4300
+      DB_SCHEMA: mysqlappdb
+      DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
+      DB_URL: jdbc:mysql://mysql-db:3306/mysqlappdb?allowPublicKeyRetrieval=true&useSSL=false
+      DB_USR: mysqluser
+      DB_PWD: mysqlpassword
+      DB_DRIVER: com.mysql.cj.jdbc.Driver
     depends_on:
       mysql:
         condition: service_healthy
