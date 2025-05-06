@@ -54,7 +54,7 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         context: .
-        file: ./docker/Dockerfile.backend
+        file: ./docker/backend/Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo:1.0.0
         cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo:1.0.0
@@ -64,7 +64,7 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         context: .
-        file: ./docker/Dockerfile.mysql
+        file: ./docker/mysql/Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo-db:1.0.0
         cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/mypublicrepo-db:1.0.0
