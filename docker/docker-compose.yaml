@@ -21,12 +21,11 @@ services:
       timeout: 5s
       retries: 3
 
-
   backend:
     image: juricastellani/mypublicrepo:1.0.0
     container_name: spring-app
     environment:
-      FRONTEND_BASE_URL: http://localhost:4300
+      FRONTEND_BASE_URL: http://angular-app:80
       DB_SCHEMA: mysqlappdb
       DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
       DB_URL: jdbc:mysql://mysql-db:3306/mysqlappdb?allowPublicKeyRetrieval=true&useSSL=false
