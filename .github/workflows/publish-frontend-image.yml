@@ -62,7 +62,6 @@ jobs:
       - name: Run Frontend Unit Tests
         working-directory: ./frontend
         run: |
-          npm install
           npm test
 
       - name: Build and push
