@@ -26,3 +26,20 @@ jobs:
       - name: Run API tests
         run: |
           curl --fail http://localhost:8080/api/companies || exit 1
+
+      - name: Check Frontend Availability
+        run: |
+          curl --fail -s http://localhost:4300 > /dev/null
+          echo "Frontend is available"
+
+      # Frontend content check
+      - name: Check Frontend Content
+        run: |
+          curl --fail -s http://localhost:4300/browser | grep -q "<title>" || exit 1
+          echo "Frontend contains expected elements"
+
+      # Optional: Setup for more advanced frontend testing
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'

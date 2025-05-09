@@ -59,6 +59,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Run Frontend Unit Tests
+        working-directory: ./frontend
+        run: |
+          npm install
+          npm test
+
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
