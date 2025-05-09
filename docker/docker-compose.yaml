@@ -25,7 +25,7 @@ services:
     image: juricastellani/mypublicrepo:1.0.0
     container_name: spring-app
     environment:
-      FRONTEND_BASE_URL: http://angular-app:80
+      FRONTEND_BASE_URL: http://angular-app:4300
       DB_SCHEMA: mysqlappdb
       DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
       DB_URL: jdbc:mysql://mysql-db:3306/mysqlappdb?allowPublicKeyRetrieval=true&useSSL=false
