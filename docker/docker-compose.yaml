@@ -55,5 +55,3 @@ services:
 networks:
   myNetwork:
 
-volumes:
-  mysql-data:
