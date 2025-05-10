@@ -5,10 +5,10 @@ services:
     image: mysql:9.3.0
     container_name: mysql-db
     environment:
-      MYSQL_ROOT_PASSWORD: mysqlrootpass
-      MYSQL_USER: mysqluser
-      MYSQL_PASSWORD: mysqlpassword
-      MYSQL_DATABASE: mysqlappdb
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_USER}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     volumes:
       - ../backend/src/test/resources:/docker-entrypoint-initdb.d
     ports:
