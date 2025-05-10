@@ -7,7 +7,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
     volumes:
       - ../backend/src/test/resources:/docker-entrypoint-initdb.d
@@ -26,11 +26,11 @@ services:
     container_name: spring-app
     environment:
       FRONTEND_BASE_URL: http://localhost:4300
-      DB_SCHEMA: mysqlappdb
+      DB_SCHEMA: ${MYSQL_DATABASE}
       DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
-      DB_URL: jdbc:mysql://mysql-db:3306/mysqlappdb?allowPublicKeyRetrieval=true&useSSL=false
-      DB_USR: mysqluser
-      DB_PWD: mysqlpassword
+      DB_URL: jdbc:mysql://mysql-db:3306/${MYSQL_DATABASE}?allowPublicKeyRetrieval=true&useSSL=false
+      DB_USR: ${MYSQL_USER}
+      DB_PWD: ${MYSQL_PASSWORD}
       DB_DRIVER: com.mysql.cj.jdbc.Driver
     depends_on:
       mysql:
