@@ -34,3 +34,6 @@ build/
 */.angular/*
 */node_modules/*
 */dist/*
+
+.env
+
