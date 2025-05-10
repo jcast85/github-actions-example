@@ -1,0 +1,11 @@
+#!/bin/bash
+# Script to set MySQL environment variables for local development
+# Save as setup-env.sh
+
+export MYSQL_ROOT_PASSWORD=<<set variable value>>
+export MYSQL_USER=<<set variable value>>
+export MYSQL_PASSWORD=<<set variable value>>
+export MYSQL_DATABASE=<<set variable value>>
+
+echo "Environment variables have been set for the current terminal session."
+echo "To verify, type: echo \$MYSQL_DATABASE"

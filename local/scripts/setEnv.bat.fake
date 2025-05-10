@@ -1,0 +1,11 @@
+@echo off
+REM Script to set MySQL environment variables for local development
+REM Save as setup-env.bat
+
+SET MYSQL_ROOT_PASSWORD=<<set variable value>>
+SET MYSQL_USER=<<set variable value>>
+SET MYSQL_PASSWORD=<<set variable value>>
+SET MYSQL_DATABASE=<<set variable value>>
+
+echo Environment variables have been set for the current command prompt session.
+echo To verify, type: echo %MYSQL_DATABASE%
